@@ -1,0 +1,83 @@
+# Unity generated files
+/Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+
+# Visual Studio files
+.vs/
+*.csproj
+*.sln
+*.suo
+
+# Unity meta files
+*.meta
+
+# Debug information files
+*.pidb
+*.pdb
+*.mdb
+
+# Other unnecessary files
+*.unitypackage
+*.unityproj
+*.app
+
+# Additional Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Pp]rojectSettings/EditorBuildSettings.asset
+[Pp]rojectSettings/EditorSettings.asset
+[Pp]rojectSettings/GraphicsSettings.asset
+[Pp]rojectSettings/InputManager.asset
+[Pp]rojectSettings/ProjectSettings.asset
+[Pp]rojectSettings/TagManager.asset
+[Pp]rojectSettings/TimeManager.asset
+[Pp]rojectSettings/QualitySettings.asset
+[Pp]rojectSettings/Physics2DSettings.asset
+[Pp]rojectSettings/PhysicsSettings.asset
+[Pp]rojectSettings/AudioManager.asset
+[Pp]rojectSettings/ParticleSystemSettings.asset
+[Pp]rojectSettings/ShaderSettings.asset
+[Pp]rojectSettings/BuildSettings.asset
+
+# Visual Studio Code settings
+.vscode/
+.settings/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# User-specific files
+*.user
+*.sln.ide
+
+# Unity Asset Store tools
+[Aa]ssetStoreTools/
+
+# Backup files
+*.bak
+*.tmp
+*.temp
+*.swp
+
+# Log files
+*.log
+
+# Cache files
+*.cache
+
+# Other generated files
+*.unitypackage
