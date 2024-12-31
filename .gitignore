@@ -81,3 +81,8 @@ desktop.ini
 
 # Other generated files
 *.unitypackage
+
+FirebasePlugin.jslib
+FirebasePlugin.js
+FirebasePlugin.js.old
+*.jslib
