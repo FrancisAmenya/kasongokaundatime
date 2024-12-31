@@ -1,0 +1,106 @@
+var FirebaseAuth = {
+    InitializeFirebase: function() {
+        // Your existing Firebase config stays here
+        firebase.initializeApp(firebaseConfig);
+    },
+
+    SignInWithEmailPassword: function(email, password) {
+        var emailStr = UTF8ToString(email);
+        var passwordStr = UTF8ToString(password);
+        signIn(emailStr, passwordStr);
+    },
+
+    SignUpWithEmailPassword: function(email, password) {
+        var emailStr = UTF8ToString(email);
+        var passwordStr = UTF8ToString(password);
+        signUp(emailStr, passwordStr);
+    },
+
+    SignOut: function() {
+        signOut();
+    }
+};
+
+mergeInto(LibraryManager.library, FirebaseAuth);
+//mergeInto(LibraryManager.library, {
+//    signUp: function(email, password) {
+//        signUp(UTF8ToString(email), UTF8ToString(password));
+//    },
+//    signIn: function(email, password) {
+///        signIn(UTF8ToString(email), UTF8ToString(password));
+ //   },
+//    signOut: function() {
+//        signOut();
+//    }
+//});
+
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDPIiLeeLJbgkH8_lMZEk6x0CiHTVGCAys",
+    authDomain: "kasongokaundatime.firebaseapp.com",
+    projectId: "kasongokaundatime",
+    storageBucket: "kasongokaundatime.firebasestorage.app",
+    messagingSenderId: "875549036873",
+    appId: "1:875549036873:web:054d5af48a87227af5ca98",
+    measurementId: "G-XB5NWEQ7MW"
+  };
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// Sign Up function
+function signUp(email, password) {
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log("User signed up:", user.uid);
+            // Send data to Unity
+            unityInstance.SendMessage('AuthManager', 'OnSignUpSuccess', user.uid);
+        })
+        .catch((error) => {
+            console.error("Sign up error:", error.message);
+            // Send error to Unity
+            unityInstance.SendMessage('AuthManager', 'OnAuthError', error.message);
+        });
+}
+
+// Sign In function
+function signIn(email, password) {
+    auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log("User signed in:", user.uid);
+            // Send data to Unity
+            unityInstance.SendMessage('AuthManager', 'OnSignInSuccess', user.uid);
+        })
+        .catch((error) => {
+            console.error("Sign in error:", error.message);
+            // Send error to Unity
+            unityInstance.SendMessage('AuthManager', 'OnAuthError', error.message);
+        });
+}
+
+// Sign Out function
+function signOut() {
+    auth.signOut()
+        .then(() => {
+            console.log("User signed out");
+            unityInstance.SendMessage('AuthManager', 'OnSignOutSuccess', '');
+        })
+        .catch((error) => {
+            console.error("Sign out error:", error.message);
+            unityInstance.SendMessage('AuthManager', 'OnAuthError', error.message);
+        });
+}
+
+// Auth state observer
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        console.log("User is signed in:", user.uid);
+        unityInstance.SendMessage('AuthManager', 'OnAuthStateChanged', user.uid);
+    } else {
+        console.log("User is signed out");
+        unityInstance.SendMessage('AuthManager', 'OnAuthStateChanged', '');
+    }
+});
