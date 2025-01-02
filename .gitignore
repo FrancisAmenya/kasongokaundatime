@@ -87,3 +87,5 @@ FirebasePlugin.js
 FirebasePlugin.js.old
 *.jslib
 Plugins/
+node_modules
+Allfiles.prompt

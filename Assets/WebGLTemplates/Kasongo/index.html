@@ -9,12 +9,24 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     
-    <!-- Firebase App (the core Firebase SDK) -->
-    <!-- Firebase Auth -->
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  
+    
+    <!-- Initialize Firebase -->
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDPIiLeeLJbgkH8_lMZEk6x0CiHTVGCAys",
+        authDomain: "kasongokaundatime.firebaseapp.com",
+        projectId: "kasongokaundatime",
+        storageBucket: "kasongokaundatime.firebasestorage.app",
+        messagingSenderId: "875549036873",
+        appId: "1:875549036873:web:054d5af48a87227af5ca98",
+        measurementId: "G-XB5NWEQ7MW"
+      };
+      
+      firebase.initializeApp(firebaseConfig);
+    </script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -66,7 +78,6 @@
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
-          // Store unityInstance globally for Firebase Auth access
           window.unityInstance = unityInstance;
         }).catch((message) => {
           alert(message);

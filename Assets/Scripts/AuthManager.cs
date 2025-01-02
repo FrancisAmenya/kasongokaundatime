@@ -39,7 +39,7 @@ public class AuthManager : MonoBehaviour
     public void SignUp(string email, string password)
     {
         #if UNITY_WEBGL && !UNITY_EDITOR
-            SignUp(email, password);
+            SignUpNative(email, password);
         #endif
     }
 
@@ -47,14 +47,14 @@ public class AuthManager : MonoBehaviour
     public void SignIn(string email, string password)
     {
         #if UNITY_WEBGL && !UNITY_EDITOR
-            SignIn(email, password);
+            SignInNative(email, password);
         #endif
     }
 
     public void SignOut()
     {
         #if UNITY_WEBGL && !UNITY_EDITOR
-            SignOut();
+            SignOutNative();
         #endif
     }
 
