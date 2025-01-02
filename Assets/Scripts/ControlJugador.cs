@@ -37,29 +37,41 @@ public class ControlJugador : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && tocandoSuelo) //Si pulsamos espacio y estamos tocando el suelo, saltamos
             {
-                audio.PlayOneShot(sonidoSalto);
-                Saltar();
+                Jump();
             }
 
 
             if (Input.GetKeyDown(KeyCode.DownArrow)) //Si pulsamos abajo, el dinosaurio se agacha
             {
-                animator.Play("Agachado");
-                colliderEnPie.enabled = false;
-                colliderAgachado.enabled = true;
+                Crouch();
             }
             else if (!Input.GetKey(KeyCode.DownArrow)) //Y si no lo estamos pulsando se pone en pié
             {
-                animator.Play("Caminar");
-                colliderEnPie.enabled = true;
-                colliderAgachado.enabled = false;
+                Crouch2();
             }
 
 
         }
     }
 
+    public void Jump()
+    {
+        audio.PlayOneShot(sonidoSalto);
+        Saltar();
+    }
+    public void Crouch()
+    {
+        animator.Play("Agachado");
+        colliderEnPie.enabled = false;
+        colliderAgachado.enabled = true;
+    }
 
+    public void Crouch2()
+    {
+        animator.Play("Caminar");
+        colliderEnPie.enabled = true;
+        colliderAgachado.enabled = false;
+    }
 
     //Función que se ejecuta cuando el jugador quiere saltar pulsando espacio
     private void Saltar()
