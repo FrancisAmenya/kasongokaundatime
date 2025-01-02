@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        
+
     // Set Canvas to handle touch input properly
     Canvas canvas = GetComponentInParent<Canvas>();
     canvas.renderMode = RenderMode.ScreenSpaceCamera;
@@ -38,12 +38,12 @@ public class UIManager : MonoBehaviour
     emailInput.inputType = TMP_InputField.InputType.Standard;
     emailInput.keyboardType = TouchScreenKeyboardType.EmailAddress;
     emailInput.shouldHideMobileInput = false;
-    emailInput.shouldActivateOnSelect = true;
+    emailInput.contentType = TMP_InputField.ContentType.EmailAddress;
 
     passwordInput.inputType = TMP_InputField.InputType.Password;
     passwordInput.keyboardType = TouchScreenKeyboardType.Default;
     passwordInput.shouldHideMobileInput = false;
-    passwordInput.shouldActivateOnSelect = true;
+    passwordInput.contentType = TMP_InputField.ContentType.Password;
 
         ShowLoginPanel();
         ClearInputFields();
