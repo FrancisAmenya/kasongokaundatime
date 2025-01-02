@@ -29,15 +29,21 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         
-    // Enable mobile keyboard for input fields
+    // Set Canvas to handle touch input properly
+    Canvas canvas = GetComponentInParent<Canvas>();
+    canvas.renderMode = RenderMode.ScreenSpaceCamera;
+    canvas.worldCamera = Camera.main;
+
+    // Configure input fields for touch devices
     emailInput.inputType = TMP_InputField.InputType.Standard;
     emailInput.keyboardType = TouchScreenKeyboardType.EmailAddress;
     emailInput.shouldHideMobileInput = false;
+    emailInput.shouldActivateOnSelect = true;
 
     passwordInput.inputType = TMP_InputField.InputType.Password;
     passwordInput.keyboardType = TouchScreenKeyboardType.Default;
     passwordInput.shouldHideMobileInput = false;
-
+    passwordInput.shouldActivateOnSelect = true;
 
         ShowLoginPanel();
         ClearInputFields();
