@@ -28,14 +28,17 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        // Enable mobile keyboard for input fields
-        emailInput.inputType = TMP_InputField.InputType.Standard;
-        emailInput.keyboardType = TouchScreenKeyboardType.EmailAddress;
-        emailInput.touchScreenKeyboard = true;
+        
+    // Enable mobile keyboard for input fields
+    emailInput.inputType = TMP_InputField.InputType.Standard;
+    emailInput.keyboardType = TouchScreenKeyboardType.EmailAddress;
+    emailInput.shouldHideMobileInput = false;
 
-        passwordInput.inputType = TMP_InputField.InputType.Password;
-        passwordInput.keyboardType = TouchScreenKeyboardType.Default;
-        passwordInput.touchScreenKeyboard = true;
+    passwordInput.inputType = TMP_InputField.InputType.Password;
+    passwordInput.keyboardType = TouchScreenKeyboardType.Default;
+    passwordInput.shouldHideMobileInput = false;
+
+
         ShowLoginPanel();
         ClearInputFields();
     }
