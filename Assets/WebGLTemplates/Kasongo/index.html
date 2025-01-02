@@ -64,16 +64,43 @@
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
 
-      // Touch input configurations
-      canvas.style.width = "100%";
-      canvas.style.height = "100%";
-      canvas.style.position = "fixed";
-      canvas.style.touchAction = "none";
-
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
+      // Device and display detection
+      function setDisplayMode() {
+      // Large displays (TVs, monitors)
+      if (window.matchMedia("(min-width: 1920px)").matches) {
+        container.className = "unity-large-display";
+        canvas.style.width = "1920px";
+        canvas.style.height = "1080px";
       }
+      // Desktop/Laptop displays
+      else if (window.matchMedia("(min-width: 1024px)").matches) {
+        container.className = "unity-desktop";
+        canvas.style.width = "1280px";
+        canvas.style.height = "720px";
+      }
+      // Tablets and smaller displays
+      else if (window.matchMedia("(min-width: 768px)").matches) {
+        container.className = "unity-tablet";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+      // Mobile devices
+      else {
+        container.className = "unity-mobile";
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+      }
+    
+      // Center the canvas
+        canvas.style.position = "absolute";
+        canvas.style.left = "50%";
+        canvas.style.top = "50%";
+        canvas.style.transform = "translate(-50%, -50%)";
+      }
+
+      // Call on load and resize
+      window.addEventListener('load', setDisplayMode);
+      window.addEventListener('resize', setDisplayMode);
 
       loadingBar.style.display = "block";
 
