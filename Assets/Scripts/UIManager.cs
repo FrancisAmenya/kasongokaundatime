@@ -2,6 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[System.Serializable]
+public class UserData
+{
+    public string uid;
+    public string email;
+}
+
 public class UIManager : MonoBehaviour
 {
     [Header("Auth References")]
@@ -93,9 +100,10 @@ public class UIManager : MonoBehaviour
     }
 
     // Called from AuthManager when authentication is successful
-    public void OnAuthenticationSuccess(string email)
-    {
-        welcomeText.text = $"Welcome, {email}!";
+    public void OnAuthenticationSuccess(string userData)
+    {   
+        UserData data = JsonUtility.FromJson<UserData>(userData);
+        welcomeText.text = $"Welcome, {data.email}!";
         ShowGamePanel();
         ClearInputFields();
     }
