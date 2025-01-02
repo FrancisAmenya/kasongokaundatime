@@ -26,6 +26,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text statusText;
     [SerializeField] private TMP_Text welcomeText;
 
+    private TouchScreenKeyboard keyboard;
+
+
     private void Start()
     {
 
@@ -39,6 +42,7 @@ public class UIManager : MonoBehaviour
     emailInput.keyboardType = TouchScreenKeyboardType.EmailAddress;
     emailInput.shouldHideMobileInput = false;
     emailInput.contentType = TMP_InputField.ContentType.EmailAddress;
+    
 
     passwordInput.inputType = TMP_InputField.InputType.Password;
     passwordInput.keyboardType = TouchScreenKeyboardType.Default;
@@ -48,6 +52,28 @@ public class UIManager : MonoBehaviour
         ShowLoginPanel();
         ClearInputFields();
     }
+    
+public void OnEmailInputStartEdit()
+{
+    keyboard = TouchScreenKeyboard.Open(emailInput.text, TouchScreenKeyboardType.EmailAddress);
+}
+
+public void OnPasswordInputStartEdit()
+{
+    keyboard = TouchScreenKeyboard.Open(passwordInput.text, TouchScreenKeyboardType.Default);
+}
+
+public void OnEmailInputEndEdit()
+{
+    emailInput.text = keyboard.text;
+    keyboard = null;
+}
+
+public void OnPasswordInputEndEdit()
+{
+    passwordInput.text = keyboard.text;
+    keyboard = null;
+}
 
     public void OnSignUpButtonClick()
     {
