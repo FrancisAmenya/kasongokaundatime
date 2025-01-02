@@ -43,11 +43,11 @@ public class ControlJugador : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.DownArrow)) //Si pulsamos abajo, el dinosaurio se agacha
             {
-                Crouch();
+                Crouch2();
             }
             else if (!Input.GetKey(KeyCode.DownArrow)) //Y si no lo estamos pulsando se pone en pié
             {
-                Crouch2();
+                Crouch();
             }
 
 
