@@ -89,3 +89,8 @@ FirebasePlugin.js.old
 Plugins/
 node_modules
 Allfiles.prompt
+AdmobManager.cs
+
+ExternalDependencyManager/
+GoogleMobileAds/
+MobileDependencyResolver/
