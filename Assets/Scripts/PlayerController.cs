@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private float groundLength = 0.8f;
 
     [Header("References ---")]
-    public GameController gameController;
+    public GameController2 gameController2;
     public Animator animator;
     public AudioSource audio;
     public AudioClip jumpSound, deathSound;
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
             animator.Play("Death");
 
             //Tell the Game Controller script that we lost
-            gameController.ActivateGameOver();
+            gameController2.ActivateGameOver();
         }
     }
 }

@@ -16,7 +16,7 @@ public class GameSceneManager : MonoBehaviour
     public void ReturnToMenu()
     {
         ResumeGame();
-        sceneController.LoadMenuScene();
+        //sceneController.LoadMenuScene();
     }
     
     public void OpenSettings()
