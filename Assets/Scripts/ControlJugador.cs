@@ -47,7 +47,7 @@ public class ControlJugador : MonoBehaviour
             }
             else if (!Input.GetKey(KeyCode.DownArrow)) //Y si no lo estamos pulsando se pone en pié
             {
-                Crouch2();
+                Walk();
             }
 
 
@@ -66,7 +66,7 @@ public class ControlJugador : MonoBehaviour
         colliderAgachado.enabled = true;
     }
 
-    public void Crouch2()
+    public void Walk()
     {
         animator.Play("Caminar");
         colliderEnPie.enabled = true;
