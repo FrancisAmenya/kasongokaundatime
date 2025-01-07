@@ -33,16 +33,16 @@ public class PlayerController : MonoBehaviour
             //Check with a small raycast at dinosaur's feet if we're touching the ground
             touchingGround = Physics2D.Raycast(transform.position, Vector2.down, groundLength, groundLayer);
 
-            if (Input.GetKeyDown(KeyCode.Space) && touchingGround) //If we press space and we're touching ground, jump
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && touchingGround) //If we press space and we're touching ground, jump
             {
                 Jump();
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow)) //If we press down, dinosaur crouches
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) //If we press down, dinosaur crouches
             {
                 Crouch();
             }
-            else if (!Input.GetKey(KeyCode.DownArrow)) //If we're not pressing down, stand up
+            else if (!(Input.GetKey(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))) //If we're not pressing down, stand up
             {
                 StandUp();
             }
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     public void Crouch()
     {
-        animator.Play("Crouched");
+        animator.Play("Crouch");
         standingCollider.enabled = false;
         crouchCollider.enabled = true;
     }
