@@ -11,6 +11,7 @@ public class GameController2 : MonoBehaviour
     [Header("References ---")]
     public GameObject GameOverPanel;
     public GameObject faster;
+    public GameObject PauseButton;
     public Material material;
     public Text scoreText;
 
@@ -51,6 +52,7 @@ public class GameController2 : MonoBehaviour
         Time.timeScale = 0;
         audio.clip = null;
         audio.PlayOneShot(gameOverMusic);
+        PauseButton.SetActive(false);
         GameOverPanel.SetActive(true);
     }
 }
