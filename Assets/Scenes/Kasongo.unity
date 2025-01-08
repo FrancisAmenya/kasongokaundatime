@@ -2033,6 +2033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverPanel: {fileID: 2120125739}
   faster: {fileID: 2021822849}
+  PauseButton: {fileID: 552168077}
   material: {fileID: 2100000, guid: b6d973a4cc640f940a3db2299b38eea8, type: 2}
   scoreText: {fileID: 518167335}
   audio: {fileID: 775069820}
