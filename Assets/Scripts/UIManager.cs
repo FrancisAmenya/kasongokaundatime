@@ -49,6 +49,14 @@ public class UIManager : MonoBehaviour
     passwordInput.shouldHideMobileInput = false;
     passwordInput.contentType = TMP_InputField.ContentType.Password;
 
+    emailInput.onEndEdit.AddListener((value) => {
+        emailInput.text = value;
+    });
+
+    passwordInput.onEndEdit.AddListener((value) => {
+        passwordInput.text = value;
+    });
+    
         ShowLoginPanel();
         ClearInputFields();
     }
