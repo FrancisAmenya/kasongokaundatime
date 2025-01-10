@@ -42,25 +42,28 @@ public class UIManager : MonoBehaviour
     emailInput.keyboardType = TouchScreenKeyboardType.EmailAddress;
     emailInput.shouldHideMobileInput = false;
     emailInput.contentType = TMP_InputField.ContentType.EmailAddress;
+    emailInput.onValueChanged.AddListener((value) => { emailInput.text = value; });
     
 
     passwordInput.inputType = TMP_InputField.InputType.Password;
     passwordInput.keyboardType = TouchScreenKeyboardType.Default;
     passwordInput.shouldHideMobileInput = false;
     passwordInput.contentType = TMP_InputField.ContentType.Password;
+    passwordInput.onValueChanged.AddListener((value) => { passwordInput.text = value; });
 
-    emailInput.onEndEdit.AddListener((value) => {
-        emailInput.text = value;
-    });
+    //emailInput.onEndEdit.AddListener((value) => {
+    //    emailInput.text = value;
+    //});
 
-    passwordInput.onEndEdit.AddListener((value) => {
-        passwordInput.text = value;
-    });
-    
+    //passwordInput.onEndEdit.AddListener((value) => {
+    //    passwordInput.text = value;
+    //});
+
         ShowLoginPanel();
         ClearInputFields();
     }
-    
+
+/*
 public void OnEmailInputStartEdit()
 {
     keyboard = TouchScreenKeyboard.Open(emailInput.text, TouchScreenKeyboardType.EmailAddress);
@@ -82,6 +85,7 @@ public void OnPasswordInputEndEdit()
     passwordInput.text = keyboard.text;
     keyboard = null;
 }
+*/
 
     public void OnSignUpButtonClick()
     {
