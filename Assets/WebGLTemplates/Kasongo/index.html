@@ -6,14 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Added orientation lock -->
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 
     <title>{{{ PRODUCT_NAME }}}</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <!-- Added mobile-specific styles -->
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      #unity-container {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+      /* Force landscape orientation */
+      @media screen and (orientation: portrait) {
+        html {
+          transform: rotate(-90deg);
+          transform-origin: left top;
+          width: 100vh;
+          height: 100vw;
+          overflow-x: hidden;
+          position: absolute;
+          top: 100%;
+          left: 0;
+        }
+      }
+    </style>
     
     <!-- Initialize Firebase -->
     <script>
@@ -31,7 +58,7 @@
     </script>
   </head>
   <body>
-    <div id="unity-container" class="unity-desktop">
+    <div id="unity-container">
       <canvas id="unity-canvas"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -64,43 +91,46 @@
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
 
-      // Device and display detection
+      // Enhanced display mode function
       function setDisplayMode() {
-      // Large displays (TVs, monitors)
-      if (window.matchMedia("(min-width: 1920px)").matches) {
-        container.className = "unity-large-display";
-        canvas.style.width = "1920px";
-        canvas.style.height = "1080px";
-      }
-      // Desktop/Laptop displays
-      else if (window.matchMedia("(min-width: 1024px)").matches) {
-        container.className = "unity-desktop";
-        canvas.style.width = "1280px";
-        canvas.style.height = "720px";
-      }
-      // Tablets and smaller displays
-      else if (window.matchMedia("(min-width: 768px)").matches) {
-        container.className = "unity-tablet";
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-      // Mobile devices
-      else {
-        container.className = "unity-mobile";
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
-      }
-    
-      // Center the canvas
-        canvas.style.position = "absolute";
-        canvas.style.left = "50%";
-        canvas.style.top = "50%";
-        canvas.style.transform = "translate(-50%, -50%)";
+          // Lock to landscape orientation
+          if (screen.orientation && screen.orientation.lock) {
+              screen.orientation.lock('landscape').catch(function() {
+                  console.log('Orientation lock failed');
+              });
+          }
+
+          if (window.matchMedia("(min-width: 1920px)").matches) {
+              container.className = "unity-large-display";
+              canvas.style.width = "1920px";
+              canvas.style.height = "1080px";
+          }
+          else if (window.matchMedia("(min-width: 1024px)").matches) {
+              container.className = "unity-desktop";
+              canvas.style.width = "1280px";
+              canvas.style.height = "720px";
+          }
+          else if (window.matchMedia("(min-width: 768px)").matches) {
+              container.className = "unity-tablet";
+              canvas.style.width = "960px";
+              canvas.style.height = "600px";
+          }
+          else {
+              container.className = "unity-mobile";
+              // Modified mobile sizing
+              canvas.style.width = "100vw";
+              canvas.style.height = "100vh";
+              canvas.style.position = "fixed";
+              canvas.style.top = "0";
+              canvas.style.left = "0";
+              canvas.style.transform = "none";
+          }
       }
 
-      // Call on load and resize
       window.addEventListener('load', setDisplayMode);
       window.addEventListener('resize', setDisplayMode);
+      // Added orientation change listener
+      window.addEventListener('orientationchange', setDisplayMode);
 
       loadingBar.style.display = "block";
 
