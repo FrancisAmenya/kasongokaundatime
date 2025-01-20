@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5507186042199172508}
   - component: {fileID: 1268222040517049491}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building  (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,4 +83,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1

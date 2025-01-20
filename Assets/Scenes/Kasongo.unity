@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88184122}
   - component: {fileID: 88184121}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ParallaxManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
     prefabs: []
     speed: 0
     spawnInterval: 0
-    spawnHeight: 0
+    spawnReference: {fileID: 977967343}
   nearLayer:
     prefabs:
     - {fileID: 499716991633085669, guid: f4c8cf7833f81513f9237822de094723, type: 3}
@@ -169,7 +169,7 @@ MonoBehaviour:
     - {fileID: 4637409537666821531, guid: 663440f7a29ba557d8a07723596de2bc, type: 3}
     speed: 1
     spawnInterval: 2
-    spawnHeight: 1
+    spawnReference: {fileID: 977967343}
   midLayer:
     prefabs:
     - {fileID: 4691141795004525695, guid: ea58352fc980b9a36b9730221ace5a8b, type: 3}
@@ -184,7 +184,7 @@ MonoBehaviour:
     - {fileID: 3095942691471918308, guid: f55e388d2c535e725a5c2875f40188ba, type: 3}
     speed: 2
     spawnInterval: 3
-    spawnHeight: 1
+    spawnReference: {fileID: 977967343}
   farLayer:
     prefabs:
     - {fileID: 3607256191118971419, guid: 9402ecd8775245cb29ca282982bc4706, type: 3}
@@ -193,9 +193,9 @@ MonoBehaviour:
     - {fileID: 4266550631995233443, guid: e58036ac813b353fc96f62b5af7ac763, type: 3}
     - {fileID: 5828757981437670738, guid: 5477cb6a8adb8a1a19486870a5d51d65, type: 3}
     - {fileID: 2674085076994795317, guid: a2cc09aa58485867a8a685239dec5042, type: 3}
-    speed: 0
-    spawnInterval: 0
-    spawnHeight: 2
+    speed: -1
+    spawnInterval: 1000000
+    spawnReference: {fileID: 1196098267}
 --- !u!4 &88184122
 Transform:
   m_ObjectHideFlags: 0

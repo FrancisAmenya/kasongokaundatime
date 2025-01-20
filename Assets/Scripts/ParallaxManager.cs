@@ -9,7 +9,7 @@ public class ParallaxManager : MonoBehaviour
         public GameObject[] prefabs;
         public float speed;
         public float spawnInterval;
-        public float spawnHeight;
+        public GameObject spawnReference; // New reference object
         private float timer;
 
         public void UpdateTimer()
@@ -56,22 +56,20 @@ public class ParallaxManager : MonoBehaviour
     private void HandleLayer(ParallaxLayer layer)
     {
         layer.UpdateTimer();
-
         if (layer.CanSpawn())
         {
             SpawnObject(layer);
             layer.ResetTimer();
         }
-
         MoveLayerObjects(layer);
     }
 
     private void SpawnObject(ParallaxLayer layer)
     {
-        if (layer.prefabs.Length == 0) return;
+        if (layer.prefabs.Length == 0 || layer.spawnReference == null) return;
 
         float spawnX = mainCamera.transform.position.x + screenWidth;
-        Vector3 spawnPosition = new Vector3(spawnX, layer.spawnHeight, 0);
+        Vector3 spawnPosition = new Vector3(spawnX, layer.spawnReference.transform.position.y, 0);
         
         GameObject prefab = layer.prefabs[Random.Range(0, layer.prefabs.Length)];
         GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
