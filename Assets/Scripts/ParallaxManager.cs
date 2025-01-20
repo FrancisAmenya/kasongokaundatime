@@ -10,6 +10,7 @@ public class ParallaxManager : MonoBehaviour
         public float speed;
         public float spawnInterval;
         public GameObject spawnReference; // New reference object
+        public int sortingOrder; // Added the missing field
         private float timer;
 
         public void UpdateTimer()
@@ -64,7 +65,8 @@ public class ParallaxManager : MonoBehaviour
         MoveLayerObjects(layer);
     }
 
-    private void SpawnObject(ParallaxLayer layer)
+    /***
+        private void SpawnObject(ParallaxLayer layer)
     {
         if (layer.prefabs.Length == 0 || layer.spawnReference == null) return;
 
@@ -75,6 +77,7 @@ public class ParallaxManager : MonoBehaviour
         GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
         activeObjects.Add(obj);
     }
+    ***/
 
     private void MoveLayerObjects(ParallaxLayer layer)
     {
@@ -108,12 +111,11 @@ public class ParallaxManager : MonoBehaviour
     if (layer.prefabs.Length == 0 || layer.spawnReference == null) return;
 
     float spawnX = mainCamera.transform.position.x + screenWidth;
-    Vector3 spawnPosition = new Vector3(spawnX, layer.spawnReference.transform.position.y, 10); // Set z to 10 for background
+    Vector3 spawnPosition = new Vector3(spawnX, layer.spawnReference.transform.position.y, 10);
     
     GameObject prefab = layer.prefabs[Random.Range(0, layer.prefabs.Length)];
     GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
     
-    // Set sorting layer to be behind everything
     SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
     if (spriteRenderer != null)
     {

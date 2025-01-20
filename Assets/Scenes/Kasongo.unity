@@ -158,6 +158,7 @@ MonoBehaviour:
     speed: 4
     spawnInterval: 7
     spawnReference: {fileID: 977967343}
+    sortingOrder: -40
   nearLayer:
     prefabs:
     - {fileID: 499716991633085669, guid: f4c8cf7833f81513f9237822de094723, type: 3}
@@ -172,6 +173,7 @@ MonoBehaviour:
     speed: 0.25
     spawnInterval: 5
     spawnReference: {fileID: 977967343}
+    sortingOrder: -50
   midLayer:
     prefabs:
     - {fileID: 4691141795004525695, guid: ea58352fc980b9a36b9730221ace5a8b, type: 3}
@@ -187,6 +189,7 @@ MonoBehaviour:
     speed: 0.35
     spawnInterval: 7
     spawnReference: {fileID: 977967343}
+    sortingOrder: -60
   farLayer:
     prefabs:
     - {fileID: 78855762030390414, guid: ca60abd6126bc4db88b9447bbcc983dc, type: 3}
@@ -195,6 +198,7 @@ MonoBehaviour:
     speed: 0.1
     spawnInterval: 3
     spawnReference: {fileID: 1196098267}
+    sortingOrder: -70
 --- !u!4 &88184122
 Transform:
   m_ObjectHideFlags: 0
