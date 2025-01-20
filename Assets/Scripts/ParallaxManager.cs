@@ -102,4 +102,35 @@ public class ParallaxManager : MonoBehaviour
             }
         }
     }
+
+    private void SpawnObject(ParallaxLayer layer)
+    {
+    if (layer.prefabs.Length == 0 || layer.spawnReference == null) return;
+
+    float spawnX = mainCamera.transform.position.x + screenWidth;
+    Vector3 spawnPosition = new Vector3(spawnX, layer.spawnReference.transform.position.y, 10); // Set z to 10 for background
+    
+    GameObject prefab = layer.prefabs[Random.Range(0, layer.prefabs.Length)];
+    GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
+    
+    // Set sorting layer to be behind everything
+    SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
+    if (spriteRenderer != null)
+    {
+        //spriteRenderer.sortingOrder = -100; // Lower number = further back
+        if (layer == foregroundLayer)
+            spriteRenderer.sortingLayerName = "Foreground";
+        else if (layer == nearLayer)
+            spriteRenderer.sortingLayerName = "Background_Buildings";
+        else if (layer == midLayer)
+            spriteRenderer.sortingLayerName = "Background_Buildings_Silhouettes";
+        else if (layer == farLayer)
+            spriteRenderer.sortingLayerName = "Background_Weather";
+
+
+        spriteRenderer.sortingOrder = layer.sortingOrder;
+    }
+    
+    activeObjects.Add(obj);
+    }
 }
