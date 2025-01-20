@@ -167,10 +167,16 @@ MonoBehaviour:
     spawnInterval: 0
     spawnHeight: 0
   farLayer:
-    prefabs: []
+    prefabs:
+    - {fileID: 3607256191118971419, guid: 9402ecd8775245cb29ca282982bc4706, type: 3}
+    - {fileID: 3812546581418967644, guid: d45eb4f7b75eb4ac9b877f6d970c8015, type: 3}
+    - {fileID: 634586451462307363, guid: 9c1902b9c484cd1f586ec85233178a01, type: 3}
+    - {fileID: 4266550631995233443, guid: e58036ac813b353fc96f62b5af7ac763, type: 3}
+    - {fileID: 5828757981437670738, guid: 5477cb6a8adb8a1a19486870a5d51d65, type: 3}
+    - {fileID: 2674085076994795317, guid: a2cc09aa58485867a8a685239dec5042, type: 3}
     speed: 0
     spawnInterval: 0
-    spawnHeight: 0
+    spawnHeight: 2
 --- !u!4 &88184122
 Transform:
   m_ObjectHideFlags: 0
