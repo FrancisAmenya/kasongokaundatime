@@ -157,15 +157,34 @@ MonoBehaviour:
     spawnInterval: 0
     spawnHeight: 0
   nearLayer:
-    prefabs: []
-    speed: 0
-    spawnInterval: 0
-    spawnHeight: 0
+    prefabs:
+    - {fileID: 499716991633085669, guid: f4c8cf7833f81513f9237822de094723, type: 3}
+    - {fileID: 6568083256140063082, guid: dab90fd37f710f2fe97bb7995fa13177, type: 3}
+    - {fileID: 4076847882286284796, guid: 6e89737eafb9e7a86ab465fb6759bae3, type: 3}
+    - {fileID: 7155826317693134110, guid: 56fde0266be20bc6e8fe984d381ecbee, type: 3}
+    - {fileID: 527661691438389727, guid: ac571f0acdc7f742582f5bebe1fcc2f0, type: 3}
+    - {fileID: 2750403095129124696, guid: d6fd89193b417dde690e532a718d4ed0, type: 3}
+    - {fileID: 7109132271497122833, guid: d0b6f79cfa714af6982bd07c51ad1c86, type: 3}
+    - {fileID: 1033112909847083025, guid: b1727742a4390852f936b75183abe88f, type: 3}
+    - {fileID: 4637409537666821531, guid: 663440f7a29ba557d8a07723596de2bc, type: 3}
+    speed: 1
+    spawnInterval: 2
+    spawnHeight: 1
   midLayer:
-    prefabs: []
-    speed: 0
-    spawnInterval: 0
-    spawnHeight: 0
+    prefabs:
+    - {fileID: 4691141795004525695, guid: ea58352fc980b9a36b9730221ace5a8b, type: 3}
+    - {fileID: 4875358763440408660, guid: 3e85767ee7b13719ebfde166c08052fb, type: 3}
+    - {fileID: 3208608888393425811, guid: 3a6214bc76ae75fc8a3ef3d49a5fbe65, type: 3}
+    - {fileID: 8924132593098942794, guid: f2f8b6285374178f09937e300b6cf14e, type: 3}
+    - {fileID: 4491109883597236749, guid: a418d871b87f7d5f6a758293bf7daf68, type: 3}
+    - {fileID: 3841926901763344859, guid: e3c0e955422e568d8ae1d59555741122, type: 3}
+    - {fileID: 6326000865777331934, guid: 26c64c4b612bd0382b2046af7660cd53, type: 3}
+    - {fileID: 3074935154423763324, guid: 03b1f7621e1777980bd853003e840cff, type: 3}
+    - {fileID: 4480581893205936130, guid: f9bf8109babd20a27b179d8599b3fb9e, type: 3}
+    - {fileID: 3095942691471918308, guid: f55e388d2c535e725a5c2875f40188ba, type: 3}
+    speed: 2
+    spawnInterval: 3
+    spawnHeight: 1
   farLayer:
     prefabs:
     - {fileID: 3607256191118971419, guid: 9402ecd8775245cb29ca282982bc4706, type: 3}
