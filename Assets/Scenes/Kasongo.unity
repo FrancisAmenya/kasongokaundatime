@@ -203,7 +203,7 @@ MonoBehaviour:
     prefabs:
     - {fileID: 872749763550651424, guid: 8032368174e1c0324a91ecc338d78159, type: 3}
     speed: 1
-    spawnInterval: 2
+    spawnInterval: 0.9
     spawnReference: {fileID: 977967343}
     sortingOrder: -20
   treeLayer:
@@ -224,11 +224,11 @@ MonoBehaviour:
     sortingOrder: -30
   blimpLayer:
     prefabs:
-    - {fileID: 0}
-    speed: 1
-    spawnInterval: 1
+    - {fileID: 5772756234512871699, guid: 4adfd2e875d0dddb9926727d3b1dbc99, type: 3}
+    speed: -3
+    spawnInterval: 10
     spawnReference: {fileID: 1196098267}
-    sortingOrder: -80
+    sortingOrder: -10
 --- !u!4 &88184122
 Transform:
   m_ObjectHideFlags: 0
