@@ -201,27 +201,34 @@ MonoBehaviour:
     sortingOrder: -70
   bushLayer:
     prefabs:
-    - {fileID: 0}
+    - {fileID: 872749763550651424, guid: 8032368174e1c0324a91ecc338d78159, type: 3}
     speed: 1
     spawnInterval: 2
-    spawnReference: {fileID: 0}
+    spawnReference: {fileID: 977967343}
     sortingOrder: -20
   treeLayer:
     prefabs:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 8711243264376885218, guid: 0c100a1a751aeb713bf9c116a0d94d83, type: 3}
+    - {fileID: 1256920861182766516, guid: 9c55e11a575c66c8297b253af0369903, type: 3}
+    - {fileID: 4663046052637407399, guid: 3e1f1dbc542e7c4f7bdb973be28bcadd, type: 3}
+    - {fileID: 8948909052588445673, guid: ebbb8adbb7d93dfa1bb07b7b9c8901ab, type: 3}
+    - {fileID: 5467396663504462481, guid: e584c722e173bb532a1a4f0839fc0fea, type: 3}
+    - {fileID: 677031429096913654, guid: 38cfe63905facad14b3d7b4578caf731, type: 3}
+    - {fileID: 5453371991562817502, guid: 85452e2f1aa73148ab73b8a3da6e9b6c, type: 3}
+    - {fileID: 121333551621304307, guid: d24b2267fff569c7f91fed7eb9c381d7, type: 3}
+    - {fileID: 912658858685140999, guid: 861f62fe3c6075825a77fdbe4d90f865, type: 3}
+    - {fileID: 661509026143777557, guid: 6afdace7024da0b358488cfc3f19dfe6, type: 3}
     speed: 1
     spawnInterval: 2
-    spawnReference: {fileID: 0}
+    spawnReference: {fileID: 977967343}
     sortingOrder: -30
+  blimpLayer:
+    prefabs:
+    - {fileID: 0}
+    speed: 1
+    spawnInterval: 1
+    spawnReference: {fileID: 1196098267}
+    sortingOrder: -80
 --- !u!4 &88184122
 Transform:
   m_ObjectHideFlags: 0
@@ -1696,90 +1703,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 885.90576, y: 402.32132, z: 3.2108922}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1325351888
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1325351890}
-  - component: {fileID: 1325351889}
-  m_Layer: 0
-  m_Name: Tree
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1325351889
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325351888}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1325351890
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325351888}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68363416, y: 0.6051688, z: 0.07909641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3295,4 +3218,3 @@ SceneRoots:
   - {fileID: 680643356}
   - {fileID: 88184122}
   - {fileID: 1686318664}
-  - {fileID: 1325351890}
