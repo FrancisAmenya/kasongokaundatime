@@ -34,6 +34,8 @@ public class ParallaxManager : MonoBehaviour
     [SerializeField] private ParallaxLayer nearLayer;
     [SerializeField] private ParallaxLayer midLayer;
     [SerializeField] private ParallaxLayer farLayer;
+    [SerializeField] private ParallaxLayer bushLayer;    // New layer
+    [SerializeField] private ParallaxLayer treeLayer;    // New layer     
 
     private List<GameObject> activeObjects = new List<GameObject>();
     private float screenWidth;
@@ -51,6 +53,8 @@ public class ParallaxManager : MonoBehaviour
         HandleLayer(nearLayer);
         HandleLayer(midLayer);
         HandleLayer(farLayer);
+        HandleLayer(bushLayer);
+        HandleLayer(treeLayer);
         CleanupOffscreenObjects();
     }
 
@@ -128,11 +132,14 @@ public class ParallaxManager : MonoBehaviour
             spriteRenderer.sortingLayerName = "Background_Buildings_Silhouettes";
         else if (layer == farLayer)
             spriteRenderer.sortingLayerName = "Background_Weather";
-
+        else if (layer == bushLayer)
+            spriteRenderer.sortingLayerName = "Background_Bushes";
+        else if (layer == treeLayer)
+            spriteRenderer.sortingLayerName = "Background_Trees";
 
         spriteRenderer.sortingOrder = layer.sortingOrder;
     }
-    
+
     activeObjects.Add(obj);
     }
 }

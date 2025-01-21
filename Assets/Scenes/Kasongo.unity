@@ -170,7 +170,7 @@ MonoBehaviour:
     - {fileID: 7109132271497122833, guid: d0b6f79cfa714af6982bd07c51ad1c86, type: 3}
     - {fileID: 1033112909847083025, guid: b1727742a4390852f936b75183abe88f, type: 3}
     - {fileID: 4637409537666821531, guid: 663440f7a29ba557d8a07723596de2bc, type: 3}
-    speed: 0.25
+    speed: 0.05
     spawnInterval: 5
     spawnReference: {fileID: 977967343}
     sortingOrder: -50
@@ -186,7 +186,7 @@ MonoBehaviour:
     - {fileID: 3074935154423763324, guid: 03b1f7621e1777980bd853003e840cff, type: 3}
     - {fileID: 4480581893205936130, guid: f9bf8109babd20a27b179d8599b3fb9e, type: 3}
     - {fileID: 3095942691471918308, guid: f55e388d2c535e725a5c2875f40188ba, type: 3}
-    speed: 0.35
+    speed: 0.07
     spawnInterval: 7
     spawnReference: {fileID: 977967343}
     sortingOrder: -60
@@ -195,7 +195,7 @@ MonoBehaviour:
     - {fileID: 78855762030390414, guid: ca60abd6126bc4db88b9447bbcc983dc, type: 3}
     - {fileID: 4778190669697073995, guid: 1ba9c3eed277972918a27c5f142f7972, type: 3}
     - {fileID: 91066422240995914, guid: 7851ebdab06e5f7bfbff92c9d5bba50c, type: 3}
-    speed: 0.1
+    speed: -1
     spawnInterval: 3
     spawnReference: {fileID: 1196098267}
     sortingOrder: -70
