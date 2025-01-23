@@ -9,8 +9,8 @@ public class ParallaxManager : MonoBehaviour
         public GameObject[] prefabs;
         public float speed;
         public float spawnInterval;
-        public GameObject spawnReference; // New reference object
-        public int sortingOrder; // Added the missing field
+        public GameObject spawnReference;
+        public int sortingOrder;
         private float timer;
 
         public void UpdateTimer()
@@ -34,10 +34,11 @@ public class ParallaxManager : MonoBehaviour
     [SerializeField] private ParallaxLayer nearLayer;
     [SerializeField] private ParallaxLayer midLayer;
     [SerializeField] private ParallaxLayer farLayer;
-    [SerializeField] private ParallaxLayer bushLayer;    // New layer
-    [SerializeField] private ParallaxLayer treeLayer;    // New layer    
-    [SerializeField] private ParallaxLayer blimpLayer;    // New layer     
+    [SerializeField] private ParallaxLayer bushLayer;
+    [SerializeField] private ParallaxLayer treeLayer;
+    [SerializeField] private ParallaxLayer blimpLayer;
 
+    private Dictionary<GameObject, ParallaxLayer> objectLayerMap = new Dictionary<GameObject, ParallaxLayer>();
     private List<GameObject> activeObjects = new List<GameObject>();
     private float screenWidth;
     private Camera mainCamera;
@@ -71,25 +72,46 @@ public class ParallaxManager : MonoBehaviour
         MoveLayerObjects(layer);
     }
 
-    /***
-        private void SpawnObject(ParallaxLayer layer)
+    private void SpawnObject(ParallaxLayer layer)
     {
         if (layer.prefabs.Length == 0 || layer.spawnReference == null) return;
 
         float spawnX = mainCamera.transform.position.x + screenWidth;
-        Vector3 spawnPosition = new Vector3(spawnX, layer.spawnReference.transform.position.y, 0);
+        Vector3 spawnPosition = new Vector3(spawnX, layer.spawnReference.transform.position.y, 10);
         
         GameObject prefab = layer.prefabs[Random.Range(0, layer.prefabs.Length)];
         GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
+        
+        SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            if (layer == foregroundLayer)
+                spriteRenderer.sortingLayerName = "Foreground";
+            else if (layer == nearLayer)
+                spriteRenderer.sortingLayerName = "Background_Buildings";
+            else if (layer == midLayer)
+                spriteRenderer.sortingLayerName = "Background_Buildings_Silhouettes";
+            else if (layer == farLayer)
+                spriteRenderer.sortingLayerName = "Background_Weather";
+            else if (layer == bushLayer)
+                spriteRenderer.sortingLayerName = "Background_Bushes";
+            else if (layer == treeLayer)
+                spriteRenderer.sortingLayerName = "Background_Trees";
+            else if (layer == blimpLayer)
+                spriteRenderer.sortingLayerName = "Background_Blimp";
+
+            spriteRenderer.sortingOrder = layer.sortingOrder;
+        }
+
+        objectLayerMap.Add(obj, layer);
         activeObjects.Add(obj);
     }
-    ***/
 
     private void MoveLayerObjects(ParallaxLayer layer)
     {
         foreach (GameObject obj in activeObjects)
         {
-            if (obj != null)
+            if (obj != null && objectLayerMap.TryGetValue(obj, out ParallaxLayer objLayer) && objLayer == layer)
             {
                 obj.transform.Translate(Vector3.left * layer.speed * Time.deltaTime);
             }
@@ -106,44 +128,10 @@ public class ParallaxManager : MonoBehaviour
             
             if (activeObjects[i].transform.position.x < destroyX)
             {
+                objectLayerMap.Remove(activeObjects[i]);
                 Destroy(activeObjects[i]);
                 activeObjects.RemoveAt(i);
             }
         }
-    }
-
-    private void SpawnObject(ParallaxLayer layer)
-    {
-    if (layer.prefabs.Length == 0 || layer.spawnReference == null) return;
-
-    float spawnX = mainCamera.transform.position.x + screenWidth;
-    Vector3 spawnPosition = new Vector3(spawnX, layer.spawnReference.transform.position.y, 10);
-    
-    GameObject prefab = layer.prefabs[Random.Range(0, layer.prefabs.Length)];
-    GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
-    
-    SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
-    if (spriteRenderer != null)
-    {
-        //spriteRenderer.sortingOrder = -100; // Lower number = further back
-        if (layer == foregroundLayer)
-            spriteRenderer.sortingLayerName = "Foreground";
-        else if (layer == nearLayer)
-            spriteRenderer.sortingLayerName = "Background_Buildings";
-        else if (layer == midLayer)
-            spriteRenderer.sortingLayerName = "Background_Buildings_Silhouettes";
-        else if (layer == farLayer)
-            spriteRenderer.sortingLayerName = "Background_Weather";
-        else if (layer == bushLayer)
-            spriteRenderer.sortingLayerName = "Background_Bushes";
-        else if (layer == treeLayer)
-            spriteRenderer.sortingLayerName = "Background_Trees";
-        else if (layer == blimpLayer)
-            spriteRenderer.sortingLayerName = "Background_Blimp";
-
-        spriteRenderer.sortingOrder = layer.sortingOrder;
-    }
-
-    activeObjects.Add(obj);
     }
 }
