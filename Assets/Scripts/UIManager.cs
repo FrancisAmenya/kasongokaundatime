@@ -33,9 +33,9 @@ public class UIManager : MonoBehaviour
     {
 
     // Set Canvas to handle touch input properly
-    Canvas canvas = GetComponentInParent<Canvas>();
-    canvas.renderMode = RenderMode.ScreenSpaceCamera;
-    canvas.worldCamera = Camera.main;
+    //Canvas canvas = GetComponentInParent<Canvas>();
+    //canvas.renderMode = RenderMode.ScreenSpaceCamera;
+    //canvas.worldCamera = Camera.main;
 
     // Configure input fields for touch devices
     emailInput.inputType = TMP_InputField.InputType.Standard;
@@ -92,7 +92,7 @@ public void OnPasswordInputEndEdit()
         if (ValidateInput())
         {
             authManager.SignUp(emailInput.text, passwordInput.text);
-            statusText.text = "Signing up...";
+            statusText.text = "Creating your player profile... 🌟";
         }
     }
 
@@ -101,7 +101,7 @@ public void OnPasswordInputEndEdit()
         if (ValidateInput())
         {
             authManager.SignIn(emailInput.text, passwordInput.text);
-            statusText.text = "Signing in...";
+            statusText.text = "Getting your game ready... 🎲";
         }
     }
 
@@ -110,25 +110,26 @@ public void OnPasswordInputEndEdit()
         authManager.SignOut();
         ShowLoginPanel();
         ClearInputFields();
+        statusText.text = "See you next time! 👋";
     }
 
     private bool ValidateInput()
     {
         if (string.IsNullOrEmpty(emailInput.text))
         {
-            statusText.text = "Please enter an email";
+            statusText.text = "Oops! Don't forget to write your email! 📧";
             return false;
         }
 
         if (string.IsNullOrEmpty(passwordInput.text))
         {
-            statusText.text = "Please enter a password";
+            statusText.text = "Hey! You need a secret password to play! 🔑";
             return false;
         }
 
         if (passwordInput.text.Length < 6)
         {
-            statusText.text = "Password must be at least 6 characters";
+            statusText.text = "Your password needs to be longer - try adding more letters or numbers! ✨";
             return false;
         }
 
@@ -158,7 +159,7 @@ public void OnPasswordInputEndEdit()
     public void OnAuthenticationSuccess(string userData)
     {   
         UserData data = JsonUtility.FromJson<UserData>(userData);
-        welcomeText.text = $"Welcome, {data.email}!";
+        welcomeText.text = $"Yay! Let's play, {data.email}!";
         ShowGamePanel();
         ClearInputFields();
     }
@@ -166,6 +167,6 @@ public void OnPasswordInputEndEdit()
     // Called from AuthManager when authentication fails
     public void OnAuthenticationError(string error)
     {
-        statusText.text = error;
+        statusText.text = "Uh-oh! Something went wrong. Let's try again! 🔄";
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 //This class handles player jumping and crouching
 public class PlayerController : MonoBehaviour
 {
-    private bool touchingGround, dead;
+    private bool touchingGround, dead; 
+    public bool jumping, crouching, standingUp;
     private float groundLength = 0.8f;
 
     [Header("References ---")]
@@ -24,6 +25,12 @@ public class PlayerController : MonoBehaviour
     public float gravity;
     public float fallMultiplier;
 
+    void Start()
+    {
+        jumping = false;
+        crouching = false;
+        standingUp = false;
+    }
     //Update is called once per frame
     void Update()
     {
@@ -33,16 +40,16 @@ public class PlayerController : MonoBehaviour
             //Check with a small raycast at dinosaur's feet if we're touching the ground
             touchingGround = Physics2D.Raycast(transform.position, Vector2.down, groundLength, groundLayer);
 
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && touchingGround) //If we press space and we're touching ground, jump
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || jumping) && touchingGround) //If we press space and we're touching ground, jump
             {
                 Jump();
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) //If we press down, dinosaur crouches
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || crouching) //If we press down, dinosaur crouches
             {
                 Crouch();
             }
-            else if (!(Input.GetKey(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))) //If we're not pressing down, stand up
+            else if (!(Input.GetKey(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && !crouching) //If we're not pressing down, stand up
             {
                 StandUp();
             }
@@ -53,6 +60,22 @@ public class PlayerController : MonoBehaviour
     {
         audio.PlayOneShot(jumpSound);
         JumpAction();
+        jumping = false;
+    }
+
+    public void EnableJumpBool()
+    {
+        jumping = true;
+    }
+
+    public void EnableCrouchBool()
+    {
+        crouching = true;
+    }
+
+    public void DisableCrouchBool()
+    {
+        crouching = false;
     }
 
     public void Crouch()
@@ -60,6 +83,7 @@ public class PlayerController : MonoBehaviour
         animator.Play("Crouch");
         standingCollider.enabled = false;
         crouchCollider.enabled = true;
+        //crouching = false;
     }
 
     public void StandUp()
