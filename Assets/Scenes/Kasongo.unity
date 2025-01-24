@@ -288,10 +288,10 @@ MonoBehaviour:
     prefabs:
     - {fileID: 5772042372223595515, guid: 67605904d35c9e8d2867181df81f32e5, type: 3}
     - {fileID: 447689280439546617, guid: 7f1e8d26b5df19a9093f822d9c9058aa, type: 3}
-    speed: 4
+    speed: 5.1
     spawnInterval: 7
     spawnReference: {fileID: 977967343}
-    sortingOrder: -40
+    sortingOrder: -1
   nearLayer:
     prefabs:
     - {fileID: 499716991633085669, guid: f4c8cf7833f81513f9237822de094723, type: 3}
@@ -2054,7 +2054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1196098268
 SpriteRenderer:
   m_ObjectHideFlags: 0
