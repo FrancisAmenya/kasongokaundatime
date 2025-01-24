@@ -5,6 +5,8 @@ using UnityEngine;
 //This class handles player jumping and crouching
 public class PlayerController : MonoBehaviour
 {
+   [SerializeField] private SunStateManager sunStateManager;
+
     private bool touchingGround, dead; 
     public bool jumping, crouching, standingUp;
     private float groundLength = 0.8f;
@@ -26,7 +28,11 @@ public class PlayerController : MonoBehaviour
     public float fallMultiplier;
 
     void Start()
-    {
+    {   
+         // Find the SunStateManager in the scene
+        sunStateManager = GameObject.FindObjectOfType<SunStateManager>();
+        Debug.Log("SunStateManager found: " + (sunStateManager != null));  // Debugging line
+        
         jumping = false;
         crouching = false;
         standingUp = false;
@@ -43,15 +49,18 @@ public class PlayerController : MonoBehaviour
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || jumping) && touchingGround) //If we press space and we're touching ground, jump
             {
                 Jump();
+                sunStateManager.SunIsSleeping();
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || crouching) //If we press down, dinosaur crouches
             {
                 Crouch();
+                sunStateManager.SunIsCrying();
             }
             else if (!(Input.GetKey(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && !crouching) //If we're not pressing down, stand up
             {
                 StandUp();
+                sunStateManager.SunIsRaging();
             }
         }
     }
@@ -135,6 +144,8 @@ public class PlayerController : MonoBehaviour
             dead = true;
             audio.PlayOneShot(deathSound);
             animator.Play("Death");
+
+            sunStateManager.SunIsHappy();
 
             //Tell the Game Controller script that we lost
             gameController2.ActivateGameOver();
