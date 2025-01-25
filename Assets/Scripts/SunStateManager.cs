@@ -11,6 +11,9 @@ public class SunStateManager : MonoBehaviour
     [SerializeField] private GameObject sunSmilingPrefab;
     [SerializeField] private GameObject sunSleepingPrefab;
     [SerializeField] private GameObject sunSadPrefab;
+    [SerializeField] private GameObject sunWinkingPrefab;
+    [SerializeField] private GameObject sunSnoringPrefab;
+    [SerializeField] private GameObject sunTearingPrefab;
 
     private GameObject sunRage;
     private GameObject sunHappy;
@@ -18,6 +21,9 @@ public class SunStateManager : MonoBehaviour
     private GameObject sunSmiling;
     private GameObject sunSleeping;
     private GameObject sunSad;
+    private GameObject sunWinking;
+    private GameObject sunSnoring;
+    private GameObject sunTearing;
 
     private void Start()
     {
@@ -36,6 +42,9 @@ public class SunStateManager : MonoBehaviour
         sunCrying = Instantiate(sunCryingPrefab, spawnPosition, Quaternion.identity);
         sunSmiling = Instantiate(sunSmilingPrefab, spawnPosition, Quaternion.identity);
         sunSleeping = Instantiate(sunSleepingPrefab, spawnPosition, Quaternion.identity);
+        sunTeary = Instantiate(sunSadPrefab, spawnPosition, Quaternion.identity);
+        sunWinking = Instantiate(sunSmilingPrefab, spawnPosition, Quaternion.identity);
+        sunSnoring = Instantiate(sunSleepingPrefab, spawnPosition, Quaternion.identity);
         sunSad = Instantiate(sunSadPrefab, spawnPosition, Quaternion.identity);
 
         // Make them children of this object for better organization
@@ -45,6 +54,9 @@ public class SunStateManager : MonoBehaviour
         sunSmiling.transform.SetParent(transform);
         sunSleeping.transform.SetParent(transform);
         sunSad.transform.SetParent(transform);
+        sunWinking.transform.SetParent(transform);
+        sunTearing.transform.SetParent(transform);
+        sunSnoring.transform.SetParent(transform);
     }
     
     public void SunIsSmiling()
@@ -55,6 +67,9 @@ public class SunStateManager : MonoBehaviour
         sunSmiling.SetActive(true);
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
+        sunTearing.SetActive(false);
+        sunWInking.SetActive(false);
+        sunSnoring.SetActive(false);
     }
 
     public void SunIsRaging()    
@@ -65,6 +80,9 @@ public class SunStateManager : MonoBehaviour
         sunSmiling.SetActive(false);
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
+        sunTearing.SetActive(false);
+        sunWInking.SetActive(false);
+        sunSnoring.SetActive(false);
     }
 
     public void SunIsCrying()
@@ -75,6 +93,9 @@ public class SunStateManager : MonoBehaviour
         sunSmiling.SetActive(false);
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
+        sunTearing.SetActive(false);
+        sunWInking.SetActive(false);
+        sunSnoring.SetActive(false);
     }
 
     public void SunIsSleeping()   
@@ -85,6 +106,9 @@ public class SunStateManager : MonoBehaviour
         sunSmiling.SetActive(false);
         sunSleeping.SetActive(true);
         sunSad.SetActive(false);
+        sunTearing.SetActive(false);
+        sunWInking.SetActive(false);
+        sunSnoring.SetActive(false);
     }
 
     public void SunIsSad()  
@@ -95,6 +119,9 @@ public class SunStateManager : MonoBehaviour
         sunSmiling.SetActive(false);
         sunSleeping.SetActive(false);
         sunSad.SetActive(true);
+        sunTearing.SetActive(false);
+        sunWInking.SetActive(false);
+        sunSnoring.SetActive(false);
     }
 
     public void SunIsHappy()    
@@ -105,6 +132,47 @@ public class SunStateManager : MonoBehaviour
         sunSmiling.SetActive(false);
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
+        sunTearing.SetActive(false);
+        sunWInking.SetActive(false);
+        sunSnoring.SetActive(false);
     }
    
+    public void SunIsTearing()
+    {
+        sunRage.SetActive(false);
+        sunHappy.SetActive(false);
+        sunCrying.SetActive(false);
+        sunSmiling.SetActive(false);
+        sunSleeping.SetActive(false);
+        sunSad.SetActive(false);
+        sunTearing.SetActive(true);
+        sunWInking.SetActive(false);
+        sunSnoring.SetActive(false);
+    }
+
+    public void SunIsWinking()
+    {
+        sunRage.SetActive(false);
+        sunHappy.SetActive(false);
+        sunCrying.SetActive(false);
+        sunSmiling.SetActive(false);
+        sunSleeping.SetActive(false);
+        sunSad.SetActive(false);
+        sunTearing.SetActive(false);
+        sunWInking.SetActive(true);
+        sunSnoring.SetActive(false);
+    }
+
+    public void SunIsSnoring()
+    {
+        sunRage.SetActive(false);
+        sunHappy.SetActive(false);
+        sunCrying.SetActive(false);
+        sunSmiling.SetActive(false);
+        sunSleeping.SetActive(false);
+        sunSad.SetActive(false);
+        sunTearing.SetActive(false);
+        sunWInking.SetActive(false);
+        sunSnoring.SetActive(true);
+    }    
 }

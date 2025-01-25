@@ -49,18 +49,17 @@ public class PlayerController : MonoBehaviour
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || jumping) && touchingGround) //If we press space and we're touching ground, jump
             {
                 Jump();
-                sunStateManager.SunIsSleeping();
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || crouching) //If we press down, dinosaur crouches
             {
+                sunStateManager.SunIsRaging();
                 Crouch();
-                sunStateManager.SunIsCrying();
             }
             else if (!(Input.GetKey(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && !crouching) //If we're not pressing down, stand up
             {
+                sunStateManager.SunIsCrying();
                 StandUp();
-                sunStateManager.SunIsRaging();
             }
         }
     }
@@ -68,6 +67,7 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         audio.PlayOneShot(jumpSound);
+        sunStateManager.SunIsSad();
         JumpAction();
         jumping = false;
     }
