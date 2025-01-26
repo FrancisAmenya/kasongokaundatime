@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (!(Input.GetKey(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && !crouching) //If we're not pressing down, stand up
             {
-                sunStateManager.SunIsCrying();
+                sunStateManager.SunIsSnoring();
                 StandUp();
             }
         }
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         audio.PlayOneShot(jumpSound);
-        sunStateManager.SunIsSad();
+        sunStateManager.SunIsTearing();
         JumpAction();
         jumping = false;
     }

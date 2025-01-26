@@ -42,9 +42,9 @@ public class SunStateManager : MonoBehaviour
         sunCrying = Instantiate(sunCryingPrefab, spawnPosition, Quaternion.identity);
         sunSmiling = Instantiate(sunSmilingPrefab, spawnPosition, Quaternion.identity);
         sunSleeping = Instantiate(sunSleepingPrefab, spawnPosition, Quaternion.identity);
-        sunTeary = Instantiate(sunSadPrefab, spawnPosition, Quaternion.identity);
-        sunWinking = Instantiate(sunSmilingPrefab, spawnPosition, Quaternion.identity);
-        sunSnoring = Instantiate(sunSleepingPrefab, spawnPosition, Quaternion.identity);
+        sunTearing = Instantiate(sunTearingPrefab, spawnPosition, Quaternion.identity);
+        sunWinking = Instantiate(sunWinkingPrefab, spawnPosition, Quaternion.identity);
+        sunSnoring = Instantiate(sunSnoringPrefab, spawnPosition, Quaternion.identity);
         sunSad = Instantiate(sunSadPrefab, spawnPosition, Quaternion.identity);
 
         // Make them children of this object for better organization
@@ -68,7 +68,7 @@ public class SunStateManager : MonoBehaviour
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
         sunTearing.SetActive(false);
-        sunWInking.SetActive(false);
+        sunWinking.SetActive(false);
         sunSnoring.SetActive(false);
     }
 
@@ -81,7 +81,7 @@ public class SunStateManager : MonoBehaviour
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
         sunTearing.SetActive(false);
-        sunWInking.SetActive(false);
+        sunWinking.SetActive(false);
         sunSnoring.SetActive(false);
     }
 
@@ -94,7 +94,7 @@ public class SunStateManager : MonoBehaviour
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
         sunTearing.SetActive(false);
-        sunWInking.SetActive(false);
+        sunWinking.SetActive(false);
         sunSnoring.SetActive(false);
     }
 
@@ -107,7 +107,7 @@ public class SunStateManager : MonoBehaviour
         sunSleeping.SetActive(true);
         sunSad.SetActive(false);
         sunTearing.SetActive(false);
-        sunWInking.SetActive(false);
+        sunWinking.SetActive(false);
         sunSnoring.SetActive(false);
     }
 
@@ -120,7 +120,7 @@ public class SunStateManager : MonoBehaviour
         sunSleeping.SetActive(false);
         sunSad.SetActive(true);
         sunTearing.SetActive(false);
-        sunWInking.SetActive(false);
+        sunWinking.SetActive(false);
         sunSnoring.SetActive(false);
     }
 
@@ -133,7 +133,7 @@ public class SunStateManager : MonoBehaviour
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
         sunTearing.SetActive(false);
-        sunWInking.SetActive(false);
+        sunWinking.SetActive(false);
         sunSnoring.SetActive(false);
     }
    
@@ -146,7 +146,7 @@ public class SunStateManager : MonoBehaviour
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
         sunTearing.SetActive(true);
-        sunWInking.SetActive(false);
+        sunWinking.SetActive(false);
         sunSnoring.SetActive(false);
     }
 
@@ -159,7 +159,7 @@ public class SunStateManager : MonoBehaviour
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
         sunTearing.SetActive(false);
-        sunWInking.SetActive(true);
+        sunWinking.SetActive(true);
         sunSnoring.SetActive(false);
     }
 
@@ -172,7 +172,7 @@ public class SunStateManager : MonoBehaviour
         sunSleeping.SetActive(false);
         sunSad.SetActive(false);
         sunTearing.SetActive(false);
-        sunWInking.SetActive(false);
+        sunWinking.SetActive(false);
         sunSnoring.SetActive(true);
     }    
 }
